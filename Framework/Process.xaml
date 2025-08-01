@@ -1,0 +1,255 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>818.4,454.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="50">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.Reflection</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="953,2801" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strTaxID" />
+      <Variable x:TypeArguments="x:Boolean" Name="boolAllMonthlyReportsDownloaded" />
+      <Variable x:TypeArguments="x:String" Name="strUploadID" />
+      <Variable x:TypeArguments="x:Boolean" Name="boolIsItemUpdated" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="450,176" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACMESystem1_NavigateWIDetails - Invoke Workflow File (ACMESystem1\ACMESystem1_NavigateWIDetails.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="ACMESystem1\ACMESystem1_NavigateWIDetails.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strWIID">[in_TransactionItem.SpecificContent("WIID").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strWIURL">[in_TransactionItem.SpecificContent("WI_URL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutS">[CInt(in_Config("TimeoutS"))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutM">[CInt(in_Config("TimeoutM"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_tspRetryInterval">[TimeSpan.Parse(in_Config("RetryInterval").ToString())]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intRetryNumber">[CInt(in_Config("RetryNumber"))]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACMESystem1_ReadWITaxID - Invoke Workflow File (ACMESystem1\ACMESystem1_ReadWITaxID.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="ACMESystem1\ACMESystem1_ReadWITaxID.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutS">[CInt(in_Config("TimeoutS"))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutM">[CInt(in_Config("TimeoutM"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_tspRetryInterval">[TimeSpan.Parse(in_Config("RetryInterval").ToString())]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intRetryNumber">[CInt(in_Config("RetryNumber"))]</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_strTaxID">[strTaxID]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACMESystem1_NavigateToDowenloadMonthlyReport - Invoke Workflow File (ACMESystem1\ACMESystem1_NavigateToDowenloadMonthlyReport.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="ACMESystem1\ACMESystem1_NavigateToDowenloadMonthlyReport.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutS">[CInt(in_Config("TimeoutS"))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutM">[CInt(in_Config("TimeoutM"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_tspRetryInterval">[TimeSpan.Parse(in_Config("RetryInterval").ToString())]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intRetryNumber">[CInt(in_Config("RetryNumber"))]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACMESystem1_DowenloadMonthlyReports - Invoke Workflow File (ACMESystem1\ACMESystem1_DowenloadMonthlyReports.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="ACMESystem1\ACMESystem1_DowenloadMonthlyReports.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_boolAllMonthlyReportsDownloaded">[boolAllMonthlyReportsDownloaded]</OutArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intMaxMonthesItrations">[CInt(in_Config("MaxMonthsIteration"))]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_MonthlyReaportsFolderPath">[in_Config("MonthlyReaportsFolderPath").ToString()]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strDownloadsPath">[(in_Config("DownloadsPath").ToString())]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strYear">[in_Config("Year").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strTaxID">[strTaxID]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutS">[CInt(in_Config("TimeoutS"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_tspRetryInterval">[TimeSpan.Parse(in_Config("RetryInterval").ToString()).Multiply(2)]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intRetryNumber">[CInt(in_Config("RetryNumber"))]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,176" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[in_Config(&quot;Year&quot;).ToString]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Excel_MergeMonthlyReportsIntoYearlyReport - Invoke Workflow File (Excel\Excel_MergeMonthlyReportsIntoYearlyReport.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Excel\Excel_MergeMonthlyReportsIntoYearlyReport.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strYear">[in_Config("Year").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strYearlyReportPath">[in_Config("YearlyReportsPath").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strMonthlyReaportsFolderPath">[in_Config("MonthlyReaportsFolderPath").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strTaxID">[strTaxID]</InArgument>
+        <InArgument x:TypeArguments="x:Boolean" x:Key="in_boolAllMonthlyReportsDownloaded">[boolAllMonthlyReportsDownloaded]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutS">[CInt(in_Config("TimeoutS"))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutM">[CInt(in_Config("TimeoutM"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_tspRetryInterval">[TimeSpan.Parse(in_Config("RetryInterval").ToString())]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intRetryNumber">[CInt(in_Config("RetryNumber"))]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACMESystem1_NavigateToUploadYearlyReport - Invoke Workflow File (ACMESystem1\ACMESystem1_NavigateToUploadYearlyReport.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="ACMESystem1\ACMESystem1_NavigateToUploadYearlyReport.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strYear">[in_Config("Year").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strTaxID">[strTaxID]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strYearlyReportFolderPath">[in_Config("YearlyReportsPath").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutS">[CInt(in_Config("TimeoutS"))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutM">[CInt(in_Config("TimeoutM"))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutL">[CInt(in_Config("TimeoutL"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_tspRetryInterval">[TimeSpan.Parse(in_Config("RetryInterval").ToString())]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intRetryNumber">[CInt(in_Config("RetryNumber"))]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACMESystem1_UploadYearlyReport - Invoke Workflow File (ACMESystem1\ACMESystem1_UploadYearlyReport.xaml)" sap:VirtualizedContainerService.HintSize="450,233.5" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" UnSafe="False" WorkflowFileName="ACMESystem1\ACMESystem1_UploadYearlyReport.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strTaxID">[strTaxID]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strYear">[in_Config("Year").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strYearlyReportFolderPath">[in_Config("YearlyReportsPath").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutS">[CInt(in_Config("TimeoutS"))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutM">[CInt(in_Config("TimeoutM"))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutL">[CInt(in_Config("TimeoutL"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_tspRetryInterval">[TimeSpan.Parse(in_Config("RetryInterval").ToString())]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intRetryNumber">[CInt(in_Config("RetryNumber"))]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACMESystem1_GetYearlyReportUploadConfirmationID - Invoke Workflow File (ACMESystem1\ACMESystem1_GetYearlyReportUploadConfirmationID.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="ACMESystem1\ACMESystem1_GetYearlyReportUploadConfirmationID.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_strUploadID">[strUploadID]</OutArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutS">[CInt(in_Config("TimeoutS"))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutM">[CInt(in_Config("TimeoutM"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_tspRetryInterval">[TimeSpan.Parse(in_Config("RetryInterval").ToString())]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intRetryNumber">[CInt(in_Config("RetryNumber"))]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACMESystem1_NavigateWIDetails - Invoke Workflow File (ACMESystem1\ACMESystem1_NavigateWIDetails.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="ACMESystem1\ACMESystem1_NavigateWIDetails.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strWIID">[in_TransactionItem.SpecificContent("WIID").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strWIURL">[in_TransactionItem.SpecificContent("WI_URL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutS">[CInt(in_Config("TimeoutS"))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutM">[CInt(in_Config("TimeoutM"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_tspRetryInterval">[TimeSpan.Parse(in_Config("RetryInterval").ToString())]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intRetryNumber">[CInt(in_Config("RetryNumber"))]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACMESystem1_NavigateToUpdateWorkItems - Invoke Workflow File (ACMESystem1\ACMESystem1_NavigateToUpdateWorkItems.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="ACMESystem1\ACMESystem1_NavigateToUpdateWorkItems.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutS">[CInt(in_Config("TimeoutS"))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutM">[CInt(in_Config("TimeoutM"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_tspRetryInterval">[TimeSpan.Parse(in_Config("RetryInterval").ToString())]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intRetryNumber">[CInt(in_Config("RetryNumber"))]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACMESystem1_WriteUpdateWorkItemDetails - Invoke Workflow File (ACMESystem1\ACMESystem1_WriteUpdateWorkItemDetails.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="ACMESystem1\ACMESystem1_WriteUpdateWorkItemDetails.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strStatus">[in_Config("UpdatedWorkItemsStatus").ToString()]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_strUploadID">[strUploadID]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutS">[CInt(in_Config("TimeoutS"))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutM">[CInt(in_Config("TimeoutM"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_tspRetryInterval">[TimeSpan.Parse(in_Config("RetryInterval").ToString())]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intRetryNumber">[CInt(in_Config("RetryNumber"))]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACMESystem1_UpdateWorkItem - Invoke Workflow File (ACMESystem1\ACMESystem1_UpdateWorkItem.xaml)" sap:VirtualizedContainerService.HintSize="450,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="ACMESystem1\ACMESystem1_UpdateWorkItem.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_boolIsItemUpdated">[boolIsItemUpdated]</OutArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutS">[CInt(in_Config("TimeoutS"))]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutM">[CInt(in_Config("TimeoutM"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_tspRetryInterval">[TimeSpan.Parse(in_Config("RetryInterval").ToString())]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intRetryNumber">[CInt(in_Config("RetryNumber"))]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ACMESystem1_CloseUpdateWorkItemWindow - Invoke Workflow File (ACMESystem1\ACMESystem1_CloseUpdateWorkItemWindow.xaml)" sap:VirtualizedContainerService.HintSize="450,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="ACMESystem1\ACMESystem1_CloseUpdateWorkItemWindow.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutM">[CInt(in_Config("TimeoutM"))]</InArgument>
+        <InArgument x:TypeArguments="x:Boolean" x:Key="in_boolIsItemUpdated">[boolIsItemUpdated]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intTimeoutS">[CInt(in_Config("TimeoutS"))]</InArgument>
+        <InArgument x:TypeArguments="x:TimeSpan" x:Key="in_tspRetryInterval">[TimeSpan.Parse(in_Config("RetryInterval").ToString())]</InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_intRetryNumber">[CInt(in_Config("RetryNumber"))]</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+  </Sequence>
+</Activity>
